@@ -1,0 +1,21 @@
+h1 Listing plans
+
+table
+  thead
+    tr
+      th Title
+      th
+      th
+      th
+
+  tbody
+    - @plans.each do |plan|
+      tr
+        td = plan.title
+        td = link_to 'Show', plan
+        td = link_to 'Edit', edit_plan_path(plan)
+        td = link_to 'Destroy', plan, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Plan', new_plan_path
